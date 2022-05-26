@@ -26,7 +26,7 @@ return [
     | App Name
     |--------------------------------------------------------------------------
     |
-    | Set to null to disable
+    | Set null to disable
     |
     | Supported: string or null
     |
@@ -91,7 +91,7 @@ return [
     | App Name Decoration Style
     |--------------------------------------------------------------------------
     |
-    | Set to null to disable
+    | Set null to disable
     |
     | Supported: "line", "label", "rectangle", null
     |
@@ -119,7 +119,7 @@ return [
     | Text Font
     |--------------------------------------------------------------------------
     |
-    | If set to null, will be used Preset Font (Roboto Regular)
+    | If set null, will be used Preset Font (Roboto Regular)
     |
     | Supported: "absolute/path/to/your/font.ttf", null
     |
@@ -131,7 +131,7 @@ return [
     | App Name Font
     |--------------------------------------------------------------------------
     |
-    | If set to null, will be used Preset Font (Roboto Medium)
+    | If set null, will be used Preset Font (Roboto Medium)
     |
     | Supported: "absolute/path/to/your/font.ttf", null
     |
