@@ -22,7 +22,7 @@ jobs:
           - php: 7.4
             laravel: 9.*
 
-    name: Laravel ${{ matrix.laravel }} on PHP ${{ matrix.php }}
+    name: Laravel ${{ matrix.laravel }} on PHP ${{ matrix.php }} - ${{ matrix.os }}
 
     steps:
       - name: Checkout code
