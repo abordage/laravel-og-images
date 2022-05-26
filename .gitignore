@@ -1,0 +1,14 @@
+.idea
+.php-cs-fixer
+.php-cs-fixer.cache
+.phpunit.result.cache
+.vscode
+build
+composer.lock
+coverage
+node_modules
+npm-debug.log
+phpstan.neon
+phpunit.xml
+testbench.yaml
+vendor
