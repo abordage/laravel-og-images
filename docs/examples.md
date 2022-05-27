@@ -63,7 +63,7 @@ $config = [
     'app_name' => 'airbnb',
     'app_name_font_size' => 40,
     'app_name_color' => '#FD375E',
-    'app_name_position' => 'center-bottom',
+    'app_name_position' => 'bottom-center',
     'app_name_decoration_style' => null,
     'app_name_decoration_color' => '#FD375E',
 
@@ -135,7 +135,7 @@ $config = [
     'app_name' => 'Tripadvisor',
     'app_name_font_size' => 30,
     'app_name_color' => '#000',
-    'app_name_position' => 'center-bottom',
+    'app_name_position' => 'bottom-center',
     'app_name_decoration_style' => 'rectangle',
     'app_name_decoration_color' => '#fff',
 
@@ -231,7 +231,7 @@ $config = [
     'app_name' => 'wikipedia.org',
     'app_name_font_size' => 35,
     'app_name_color' => '#060606',
-    'app_name_position' => 'center-bottom',
+    'app_name_position' => 'bottom-center',
     'app_name_decoration_style' => 'line',
     'app_name_decoration_color' => '#222',
 
@@ -255,7 +255,7 @@ $config = [
     'app_name' => 'Yahoo!',
     'app_name_font_size' => 35,
     'app_name_color' => '#fff',
-    'app_name_position' => 'center-bottom',
+    'app_name_position' => 'bottom-center',
     'app_name_decoration_style' => null,
     'app_name_decoration_color' => '#fff',
 
