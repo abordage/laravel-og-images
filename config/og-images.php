@@ -84,7 +84,7 @@ return [
     |            "bottom-left", "bottom-center", "bottom-right"
     |
     */
-    'app_name_position' => 'center-bottom',
+    'app_name_position' => 'bottom-center',
 
     /*
     |--------------------------------------------------------------------------
