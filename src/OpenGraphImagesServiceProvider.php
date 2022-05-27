@@ -4,7 +4,7 @@ namespace Abordage\LaravelOpenGraphImages;
 
 use Illuminate\Support\ServiceProvider;
 
-class LaravelOpenGraphImagesServiceProvider extends ServiceProvider
+class OpenGraphImagesServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -29,7 +29,7 @@ class LaravelOpenGraphImagesServiceProvider extends ServiceProvider
 
         /* Register the main class to use with the facade */
         $this->app->singleton('laravel-og-images', function () {
-            return new LaravelOpenGraphImages();
+            return new OpenGraphImages();
         });
     }
 }

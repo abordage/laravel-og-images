@@ -2,12 +2,9 @@
 
 namespace Abordage\LaravelOpenGraphImages;
 
-use Abordage\OpenGraphImages\OpenGraphImages;
+use Abordage\OpenGraphImages\OpenGraphImages as BaseOpenGraphImages;
 
-/**
- * @see \Abordage\OpenGraphImages\OpenGraphImages
- */
-class LaravelOpenGraphImages extends OpenGraphImages
+class OpenGraphImages extends BaseOpenGraphImages
 {
     public function __construct()
     {

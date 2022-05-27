@@ -21,7 +21,7 @@
     "require": {
         "php": ">=7.4",
         "ext-imagick": "*",
-        "abordage/og-images": "^0.1.0",
+        "abordage/og-images": "^0.1.1",
         "illuminate/support": "^8.0 || ^9.0"
     },
     "require-dev": {
@@ -53,10 +53,10 @@
     "extra": {
         "laravel": {
             "aliases": {
-                "LaravelOpenGraphImages": "OpenGraphImages"
+                "OpenGraphImages": "Abordage\\LaravelOpenGraphImages\\Facades\\OpenGraphImages"
             },
             "providers": [
-                "Abordage\\LaravelOpenGraphImages\\LaravelOpenGraphImagesServiceProvider"
+                "Abordage\\LaravelOpenGraphImages\\OpenGraphImagesServiceProvider"
             ]
         }
     },

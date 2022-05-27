@@ -2,21 +2,21 @@
 
 namespace Abordage\LaravelOpenGraphImages\Tests;
 
-use Abordage\LaravelOpenGraphImages\LaravelOpenGraphImages;
+use Abordage\LaravelOpenGraphImages\OpenGraphImages;
 use Orchestra\Testbench\TestCase as Orchestra;
 use org\bovigo\vfs\vfsStream;
 use ReflectionClass;
 use ReflectionException;
 
-class LaravelOpenGraphImagesTest extends Orchestra
+class OpenGraphImagesTest extends Orchestra
 {
-    private LaravelOpenGraphImages $openGraphImages;
+    private OpenGraphImages $openGraphImages;
     private string $directoryPath;
 
     protected function setUp(): void
     {
         parent::setUp();
-        $this->openGraphImages = new LaravelOpenGraphImages();
+        $this->openGraphImages = new OpenGraphImages();
 
         $rootDirName = 'virtualDir';
         vfsStream::setup($rootDirName);
@@ -29,7 +29,7 @@ class LaravelOpenGraphImagesTest extends Orchestra
     public function testMake(string $text): void
     {
         $result = $this->openGraphImages->make($text);
-        $this->assertInstanceOf(LaravelOpenGraphImages::class, $result);
+        $this->assertInstanceOf(OpenGraphImages::class, $result);
         $this->assertEquals('image/png', $this->getMimeTypeFromString($result->get()));
     }
 
@@ -39,7 +39,7 @@ class LaravelOpenGraphImagesTest extends Orchestra
     public function testMakeTwitter(string $text): void
     {
         $result = $this->openGraphImages->makeTwitter($text);
-        $this->assertInstanceOf(LaravelOpenGraphImages::class, $result);
+        $this->assertInstanceOf(OpenGraphImages::class, $result);
         $this->assertEquals('image/png', $this->getMimeTypeFromString($result->get()));
     }
 
@@ -49,7 +49,7 @@ class LaravelOpenGraphImagesTest extends Orchestra
     public function testMakeVk(string $text): void
     {
         $result = $this->openGraphImages->makeVk($text);
-        $this->assertInstanceOf(LaravelOpenGraphImages::class, $result);
+        $this->assertInstanceOf(OpenGraphImages::class, $result);
         $this->assertEquals('image/png', $this->getMimeTypeFromString($result->get()));
     }
 
@@ -72,10 +72,10 @@ class LaravelOpenGraphImagesTest extends Orchestra
      */
     public function testMultiLine(string $text): void
     {
-        $class = new ReflectionClass(LaravelOpenGraphImages::class);
+        $class = new ReflectionClass(OpenGraphImages::class);
         $method = $class->getMethod('multiLine');
         $method->setAccessible(true);
-        $obj = new LaravelOpenGraphImages();
+        $obj = new OpenGraphImages();
 
         $width = 10;
         /** @var string $result */

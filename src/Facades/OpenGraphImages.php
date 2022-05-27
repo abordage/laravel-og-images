@@ -2,17 +2,16 @@
 
 namespace Abordage\LaravelOpenGraphImages\Facades;
 
-use Abordage\LaravelOpenGraphImages\LaravelOpenGraphImages;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static LaravelOpenGraphImages make(string $text, int $width = 1200, int $height = 630)
- * @method static LaravelOpenGraphImages makeTwitter(string $text)
- * @method static LaravelOpenGraphImages makeVk(string $text)
+ * @method static \Abordage\LaravelOpenGraphImages\OpenGraphImages make(string $text, int $width = 1200, int $height = 630)
+ * @method static \Abordage\LaravelOpenGraphImages\OpenGraphImages makeTwitter(string $text)
+ * @method static \Abordage\LaravelOpenGraphImages\OpenGraphImages makeVk(string $text)
  * @method string|null get()
  * @method bool save(string $path)
  *
- * @see \Abordage\LaravelOpenGraphImages\LaravelOpenGraphImages
+ * @see \Abordage\LaravelOpenGraphImages\OpenGraphImages
  */
 class OpenGraphImages extends Facade
 {
