@@ -71,7 +71,8 @@
         "test:phpcs": "vendor/bin/phpcs -n -p --colors",
         "test:phpstan": "vendor/bin/phpstan analyse",
         "test:phpstan-generate-baseline": "vendor/bin/phpstan --generate-baseline",
-        "test:phpunit": "vendor/bin/phpunit --colors=always"
+        "test:phpunit": "vendor/bin/phpunit --colors=always",
+        "test:phpunit-coverage": "vendor/bin/phpunit --coverage-clover build/coverage.xml"
     },
     "scripts-descriptions": {
         "php-cs-fixer": "Run PHP-CS-Fixer",
@@ -80,6 +81,7 @@
         "test:phpcs": "Run PHP Code Sniffer",
         "test:phpstan": "Run PHPStan",
         "test:phpstan-generate-baseline": "Generate baseline for PHPStan",
-        "test:phpunit": "Run PHPUnit"
+        "test:phpunit": "Run PHPUnit",
+        "test:phpunit-coverage": "Run PHPUnit with coverage"
     }
 }

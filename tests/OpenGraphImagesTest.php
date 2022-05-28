@@ -113,7 +113,6 @@ class OpenGraphImagesTest extends Orchestra
             around the world, as well as many other vital community projects",
             ],
             ["The Open Graph protocol enables any web page to become a rich object in a social graph"],
-            ["Blockchain’s youngest billionaire roasts world’s biggest cryptocurrency"],
             ["Another week of job slashes and crypto crashes"],
         ];
     }
