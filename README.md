@@ -332,12 +332,12 @@ $config = [
 
 ## API Reference
 
-| Method                                                           | Returns | Added in | Changed in |
-|------------------------------------------------------------------|:-------:|:--------:|:----------:|
-| `make(string $text, string $preset = 'opengraph')`               |  self   |  0.1.0   |   0.2.0    |
-| `makeCustom(string $text, int $width = 1200, int $height = 630)` |  self   |  0.2.0   |     -      |
-| `get()`                                                          | string  |  0.1.0   |     -      |
-| `save(string $path)`                                             | boolean |  0.1.0   |     -      |
+| Method                                                | Returns | Added in | Changed in |
+|-------------------------------------------------------|:-------:|:--------:|:----------:|
+| `make(string $text, string $preset = 'opengraph')`    |  self   |  0.1.0   |   0.2.0    |
+| `makeCustom(string $text, int $width, int $height)`   |  self   |  0.2.0   |     -      |
+| `get()`                                               | string  |  0.1.0   |     -      |
+| `save(string $path)`                                  | boolean |  0.1.0   |     -      |
 
 ### Images aspect ratios
 

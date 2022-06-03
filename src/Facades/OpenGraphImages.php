@@ -5,9 +5,8 @@ namespace Abordage\LaravelOpenGraphImages\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static \Abordage\LaravelOpenGraphImages\OpenGraphImages make(string $text, int $width = 1200, int $height = 630)
- * @method static \Abordage\LaravelOpenGraphImages\OpenGraphImages makeTwitter(string $text)
- * @method static \Abordage\LaravelOpenGraphImages\OpenGraphImages makeVk(string $text)
+ * @method static \Abordage\LaravelOpenGraphImages\OpenGraphImages make(string $text, string $preset = 'opengraph')
+ * @method static \Abordage\LaravelOpenGraphImages\OpenGraphImages makeCustom(string $text, int $width, int $height)
  * @method string|null get()
  * @method bool save(string $path)
  *
