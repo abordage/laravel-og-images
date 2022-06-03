@@ -100,14 +100,19 @@ $opengraph = OpenGraphImages::make($text)->save($path);
 ## Usage
 
 ```php
-// for <og:image> (default, facebook and other)
+// for <og:image>
 OpenGraphImages::make($text)->save($path);
+// or
+OpenGraphImages::make($text, 'opengraph')->save($path);
 
 // for <twitter:image>
-OpenGraphImages::makeTwitter($text)->save($path);
+OpenGraphImages::make($text, 'twitter')->save($path);
 
 // for <vk:image>
-OpenGraphImages::makeVk($text)->save($path);
+OpenGraphImages::make($text, 'vk')->save($path);
+
+// custom size
+OpenGraphImages::makeCustom($text, 600, 400)->save($path);
 ```
 
 After generation, you need to somehow organize the relationship of images with a specific page (for example, attach to a
@@ -155,12 +160,23 @@ $imageBlob = OpenGraphImages::make($page->title)->get();
 $page->addMediaFromString($imageBlob)
      ->usingFileName(\Str::slug($page->title) . '.png')
      ->toMediaCollection('opengraph');
+```
 
-// for twitter
-$imageBlob = OpenGraphImages::makeTwitter($page->title)->get();
-$page->addMediaFromString($imageBlob)
-     ->usingFileName(\Str::slug($page->title) . '.png')
-     ->toMediaCollection('twitter');
+Multiple images:
+
+```php
+$page = new Page();
+$page->title = 'Your awesome title';
+$page->save();
+
+$presets = ['opengraph', 'twitter', 'vk'];
+foreach ($presets as $preset){
+    // generate image and attach to model
+    $imageBlob = OpenGraphImages::make($page->title, $preset)->get();
+    $page->addMediaFromString($imageBlob)
+         ->usingFileName(\Str::slug($page->title) . '-' . $preset . '.png')
+         ->toMediaCollection($preset);
+}
 ```
 
 Now you can get the link for the og:image meta tag as follows:
@@ -168,6 +184,7 @@ Now you can get the link for the og:image meta tag as follows:
 ```php
 $ogImageUrl = $page->getFirstMediaUrl('opengraph');
 $twitterImageUrl = $page->getFirstMediaUrl('twitter');
+$vkImageUrl = $page->getFirstMediaUrl('vk');
 ```
 
 ## Configuration
@@ -315,21 +332,22 @@ $config = [
 
 ## API Reference
 
-| Method                                                     | Returns | Added in |
-|------------------------------------------------------------|:-------:|:--------:|
-| `make(string $text, int $width = 1200, int $height = 630)` |  self   |  0.1.0   |
-| `makeTwitter(string $text)`                                |  self   |  0.1.0   |
-| `makeVk(string $text)`                                     |  self   |  0.1.0   |
-| `get()`                                                    | string  |  0.1.0   |
-| `save(string $path)`                                       | boolean |  0.1.0   |
+| Method                                                           | Returns | Added in | Changed in |
+|------------------------------------------------------------------|:-------:|:--------:|:----------:|
+| `make(string $text, string $preset = 'opengraph')`               |  self   |  0.1.0   |   0.2.0    |
+| `makeCustom(string $text, int $width = 1200, int $height = 630)` |  self   |  0.2.0   |     -      |
+| `get()`                                                          | string  |  0.1.0   |     -      |
+| `save(string $path)`                                             | boolean |  0.1.0   |     -      |
 
 ### Images aspect ratios
 
-| Method                                              | Aspect ratios       |     Docs      |
-|-----------------------------------------------------|:--------------------|:-------------:|
-| `make(string $text)`                                | 1200 x 630 (1.91:1) |   [fb][fb]    |
-| `makeTwitter(string $text)`                         | 1200 x 600 (2:1)    | [twitter][tw] |
-| `makeVk(string $text)`                              | 1200 x 536 (2.2:1)  |   [vk][vk]    |
+| Preset                            | Aspect ratios       |     Docs      |
+|-----------------------------------|:--------------------|:-------------:|
+| `make(string $text)`              | 1200 x 630 (1.91:1) |               |
+| `make(string $text, 'opengraph')` | 1200 x 630 (1.91:1) |               |
+| `make(string $text, 'facebook')`  | 1200 x 630 (1.91:1) |   [fb][fb]    |
+| `make(string $text, 'twitter')`   | 1200 x 600 (2:1)    | [twitter][tw] |
+| `make(string $text, 'vk')`        | 1200 x 536 (2.2:1)  |   [vk][vk]    |
 
 [fb]: https://developers.facebook.com/docs/sharing/webmasters/images/
 [tw]: https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary-card-with-large-image

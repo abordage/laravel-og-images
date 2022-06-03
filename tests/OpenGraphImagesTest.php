@@ -31,26 +31,31 @@ class OpenGraphImagesTest extends Orchestra
         $result = $this->openGraphImages->make($text);
         $this->assertInstanceOf(OpenGraphImages::class, $result);
         $this->assertEquals('image/png', $this->getMimeTypeFromString($result->get()));
+
+        $presets = ['opengraph', 'facebook', 'twitter', 'vk'];
+        foreach ($presets as $preset) {
+            $result = $this->openGraphImages->make($text, $preset);
+            $this->assertInstanceOf(OpenGraphImages::class, $result);
+            $this->assertEquals('image/png', $this->getMimeTypeFromString($result->get()));
+        }
     }
 
     /**
      * @dataProvider textProvider
      */
-    public function testMakeTwitter(string $text): void
+    public function testMakeCustom(string $text): void
     {
-        $result = $this->openGraphImages->makeTwitter($text);
-        $this->assertInstanceOf(OpenGraphImages::class, $result);
-        $this->assertEquals('image/png', $this->getMimeTypeFromString($result->get()));
-    }
+        $sizesCollection = [
+            [500, 500],
+            [600, 400],
+        ];
 
-    /**
-     * @dataProvider textProvider
-     */
-    public function testMakeVk(string $text): void
-    {
-        $result = $this->openGraphImages->makeVk($text);
-        $this->assertInstanceOf(OpenGraphImages::class, $result);
-        $this->assertEquals('image/png', $this->getMimeTypeFromString($result->get()));
+        foreach ($sizesCollection as $sizes) {
+            [$width, $height] = $sizes;
+            $result = $this->openGraphImages->makeCustom($text, $width, $height);
+            $this->assertInstanceOf(OpenGraphImages::class, $result);
+            $this->assertEquals('image/png', $this->getMimeTypeFromString($result->get()));
+        }
     }
 
     /**
