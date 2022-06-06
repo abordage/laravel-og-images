@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static \Abordage\LaravelOpenGraphImages\OpenGraphImages makeCustom(string $text, int $width, int $height)
  * @method string|null get()
  * @method bool save(string $path)
+ * @method array getImageSizes()
  *
  * @see \Abordage\LaravelOpenGraphImages\OpenGraphImages
  */

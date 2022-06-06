@@ -43,6 +43,24 @@ class OpenGraphImagesTest extends Orchestra
     /**
      * @dataProvider textProvider
      */
+    public function testGetImageSizes(string $text): void
+    {
+        $openGraphImages = $this->openGraphImages;
+        $result = $openGraphImages->getImageSizes();
+        $this->assertEquals([], $result);
+
+        $openGraphImages = $this->openGraphImages->make($text);
+        $result = $openGraphImages->getImageSizes();
+
+        foreach ($result as $key => $value) {
+            $this->assertIsInt($value);
+            $this->assertGreaterThan(0, $value);
+        }
+    }
+
+    /**
+     * @dataProvider textProvider
+     */
     public function testMakeCustom(string $text): void
     {
         $sizesCollection = [

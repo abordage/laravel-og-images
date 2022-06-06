@@ -123,6 +123,18 @@ as a string instead of saving it:
 $imageBlob = OpenGraphImages::make($text)->get();
 ```
 
+If after generation you need to get sizes of the image, you can get it as follows:
+
+```php
+$openGraphImage = OpenGraphImages::make($text, 'twitter');
+$openGraphImage->save($path);
+$imageSizes = $openGraphImage->getImageSizes();
+// return [
+//    'width' => 1200,
+//    'height' => 600
+// ];
+```
+
 ## Usage with `spatie/laravel-medialibrary`
 [spatie/laravel-medialibrary](https://github.com/spatie/laravel-medialibrary) is a great package for associate all sorts of files with Eloquent models. If you are using this package (or similar), all you need to do is to add new collections to the model and attach images using media library. 
 
@@ -156,9 +168,10 @@ $page->title = 'Your awesome title';
 $page->save();
 
 // generate image and attach to model
-$imageBlob = OpenGraphImages::make($page->title)->get();
-$page->addMediaFromString($imageBlob)
+$image = OpenGraphImages::make($page->title);
+$page->addMediaFromString($image->get())
      ->usingFileName(\Str::slug($page->title) . '.png')
+     ->withCustomProperties($image->getImageSizes())
      ->toMediaCollection('opengraph');
 ```
 
@@ -170,11 +183,11 @@ $page->title = 'Your awesome title';
 $page->save();
 
 $presets = ['opengraph', 'twitter', 'vk'];
-foreach ($presets as $preset){
-    // generate image and attach to model
-    $imageBlob = OpenGraphImages::make($page->title, $preset)->get();
-    $page->addMediaFromString($imageBlob)
+foreach ($presets as $preset) {
+    $image = OpenGraphImages::make($page->title, $preset);
+    $page->addMediaFromString($image->get())
          ->usingFileName(\Str::slug($page->title) . '-' . $preset . '.png')
+         ->withCustomProperties($image->getImageSizes())
          ->toMediaCollection($preset);
 }
 ```
@@ -332,12 +345,13 @@ $config = [
 
 ## API Reference
 
-| Method                                                | Returns | Added in | Changed in |
-|-------------------------------------------------------|:-------:|:--------:|:----------:|
-| `make(string $text, string $preset = 'opengraph')`    |  self   |  0.1.0   |   0.2.0    |
-| `makeCustom(string $text, int $width, int $height)`   |  self   |  0.2.0   |     -      |
-| `get()`                                               | string  |  0.1.0   |     -      |
-| `save(string $path)`                                  | boolean |  0.1.0   |     -      |
+| Method                                              | Returns | Added in | Changed in |
+|-----------------------------------------------------|:-------:|:--------:|:----------:|
+| `make(string $text, string $preset = 'opengraph')`  |  self   |  0.1.0   |   0.2.0    |
+| `makeCustom(string $text, int $width, int $height)` |  self   |  0.2.0   |     -      |
+| `get()`                                             | string  |  0.1.0   |     -      |
+| `save(string $path)`                                | boolean |  0.1.0   |     -      |
+| `getImageSizes()`                                   |  array  |  0.3.0   |     -      |
 
 ### Images aspect ratios
 
