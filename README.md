@@ -64,25 +64,6 @@ You can publish config file with:
 php artisan vendor:publish --tag="og-images-config"
 ```
 
-You can access the Open Graph Generator using the following facade:
-
-```php
-Abordage\LaravelOpenGraphImages\Facades\OpenGraphImages
-```
-
-You can set a short alias for this facade in your  `config/app.php` file:
-
-```php
-return [
-    // ...
-    'aliases' => Facade::defaultAliases()->merge([
-        // ...
-        'OpenGraphImages' => Abordage\LaravelOpenGraphImages\Facades\OpenGraphImages::class,
-    ])->toArray()
-    // ...
-];
-```
-
 ## Quick start
 
 ```php
