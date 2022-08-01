@@ -4,7 +4,7 @@ Create Open Graph images (og:image, twitter:image, vk:image) for each (or some) 
 
 <p style="text-align: center;" align="center">
 <a href="https://github.com/abordage/laravel-og-images/blob/master/docs/examples.md" title="Open Graph Images Generator">
-    <img alt="Open Graph Images Generator" src="https://github.com/abordage/laravel-og-images/blob/master/docs/images/default-og-image-830x435.png">
+    <img alt="Open Graph Images Generator" src="https://github.com/abordage/laravel-og-images/blob/master/docs/images/default-og-image-830x435.png?raw=true">
 </a>
 </p>
 
