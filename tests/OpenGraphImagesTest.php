@@ -52,7 +52,7 @@ class OpenGraphImagesTest extends Orchestra
         $openGraphImages = $this->openGraphImages->make($text);
         $result = $openGraphImages->getImageSizes();
 
-        foreach ($result as $key => $value) {
+        foreach ($result as $value) {
             $this->assertIsInt($value);
             $this->assertGreaterThan(0, $value);
         }
