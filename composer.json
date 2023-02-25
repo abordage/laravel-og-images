@@ -21,7 +21,7 @@
     "require": {
         "php": ">=7.4",
         "ext-imagick": "*",
-        "abordage/og-images": "^0.3.0",
+        "abordage/og-images": "^0.4.0",
         "illuminate/support": "^8.0 || ^9.0 || ^10.0"
     },
     "require-dev": {
