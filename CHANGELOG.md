@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-og-images` will be documented in this file.
 
+## 0.4.1 - 2023-02-25
+
+### What's Changed
+
+- Update abordage/og-images version by @abordage in https://github.com/abordage/laravel-og-images/pull/13
+
+**Full Changelog**: https://github.com/abordage/laravel-og-images/compare/0.4.0...0.4.1
+
 ## 0.4.0 - 2023-02-25
 
 ### What's Changed
