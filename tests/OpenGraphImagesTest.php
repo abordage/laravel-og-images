@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Abordage\LaravelOpenGraphImages\Tests;
 
 use Abordage\LaravelOpenGraphImages\OpenGraphImages;
