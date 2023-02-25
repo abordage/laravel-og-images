@@ -1,3 +1,5 @@
+<!--suppress HtmlDeprecatedAttribute -->
+
 # Open Graph Image Generator for Laravel
 
 Create Open Graph images (og:image, twitter:image, vk:image) for each (or some) site pages.
@@ -46,8 +48,8 @@ messengers. [Learn more](https://ogp.me) about Open Graph.
 
 ## Requirements
 
-- PHP 7.4 or higher
-- Laravel 8 or higher
+- PHP 7.4 - 8.2
+- Laravel 8.x - 10.x
 - The Imagick PHP extension
 
 ## Installation
@@ -367,6 +369,8 @@ composer test:phpunit
 composer test:phpstan
 composer test:phpcs
 ```
+
+or see https://github.com/abordage/laravel-og-images/actions/workflows/tests.yml
 
 ## Feedback
 
