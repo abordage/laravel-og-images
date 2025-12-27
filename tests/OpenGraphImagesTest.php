@@ -7,6 +7,7 @@ namespace Abordage\LaravelOpenGraphImages\Tests;
 use Abordage\LaravelOpenGraphImages\OpenGraphImages;
 use Orchestra\Testbench\TestCase as Orchestra;
 use org\bovigo\vfs\vfsStream;
+use PHPUnit\Framework\Attributes\DataProvider;
 use ReflectionClass;
 use ReflectionException;
 
@@ -25,9 +26,7 @@ class OpenGraphImagesTest extends Orchestra
         $this->directoryPath = vfsStream::url($rootDirName);
     }
 
-    /**
-     * @dataProvider textProvider
-     */
+    #[DataProvider('textProvider')]
     public function testMake(string $text): void
     {
         $result = $this->openGraphImages->make($text);
@@ -42,9 +41,7 @@ class OpenGraphImagesTest extends Orchestra
         }
     }
 
-    /**
-     * @dataProvider textProvider
-     */
+    #[DataProvider('textProvider')]
     public function testGetImageSizes(string $text): void
     {
         $openGraphImages = $this->openGraphImages;
@@ -60,9 +57,7 @@ class OpenGraphImagesTest extends Orchestra
         }
     }
 
-    /**
-     * @dataProvider textProvider
-     */
+    #[DataProvider('textProvider')]
     public function testMakeCustom(string $text): void
     {
         $sizesCollection = [
@@ -78,9 +73,7 @@ class OpenGraphImagesTest extends Orchestra
         }
     }
 
-    /**
-     * @dataProvider textProvider
-     */
+    #[DataProvider('textProvider')]
     public function testSave(string $text): void
     {
         $path = $this->directoryPath . '/test1/test2/test-image.png';
@@ -92,18 +85,16 @@ class OpenGraphImagesTest extends Orchestra
     }
 
     /**
-     * @dataProvider textProvider
      * @throws ReflectionException
      */
+    #[DataProvider('textProvider')]
     public function testMultiLine(string $text): void
     {
         $class = new ReflectionClass(OpenGraphImages::class);
         $method = $class->getMethod('multiLine');
-        $method->setAccessible(true);
         $obj = new OpenGraphImages();
 
         $width = 10;
-        /** @var string $result */
         $result = $method->invoke($obj, $text, $width);
         $this->assertIsString($result);
 
@@ -117,19 +108,21 @@ class OpenGraphImagesTest extends Orchestra
      * @param string|null $sting
      * @return false|string
      */
-    private function getMimeTypeFromString(?string $sting)
+    private function getMimeTypeFromString(?string $sting): false|string
     {
         if (is_null($sting)) {
             return false;
         }
 
-        /** @var resource $finfo */
         $finfo = finfo_open(FILEINFO_MIME_TYPE);
+        if ($finfo === false) {
+            return false;
+        }
 
         return finfo_buffer($finfo, $sting);
     }
 
-    public function textProvider(): array
+    public static function textProvider(): array
     {
         return [
             [
