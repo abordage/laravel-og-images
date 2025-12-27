@@ -1,6 +1,6 @@
 includes:
     - phpstan-baseline.neon
-    - ./vendor/nunomaduro/larastan/extension.neon
+    - ./vendor/larastan/larastan/extension.neon
 
 parameters:
 
@@ -13,11 +13,6 @@ parameters:
     level: 9
 
     ignoreErrors:
+        - identifier: missingType.iterableValue
 
-    excludePaths:
-        - ./*/*/FileToBeExcluded.php
-        - ./dir/dir/FileToBeExcluded.php
-
-    editorUrl: 'phpstorm://open?file=%%file%%&line=%%line%%'
-
-    checkMissingIterableValueType: false
+    checkOctaneCompatibility: true

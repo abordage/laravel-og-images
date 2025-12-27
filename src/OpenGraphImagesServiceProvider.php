@@ -16,7 +16,7 @@ class OpenGraphImagesServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             /* Publishing config */
             $this->publishes([
-              __DIR__ . '/../config/og-images.php' => config_path('og-images.php'),
+                __DIR__ . '/../config/og-images.php' => config_path('og-images.php'),
             ], 'og-images-config');
         }
     }
