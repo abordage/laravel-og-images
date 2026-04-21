@@ -49,7 +49,7 @@ messengers. [Learn more](https://ogp.me) about Open Graph.
 ## Requirements
 
 - PHP 8.2+
-- Laravel 11.x / 12.x
+- Laravel 11.x / 12.x / 13.x
 - The Imagick PHP extension
 
 ## Installation
