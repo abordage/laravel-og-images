@@ -2,6 +2,18 @@
 
 All notable changes to `laravel-og-images` will be documented in this file.
 
+## 1.1.0 - 2026-04-21
+
+### What's Changed
+
+* feat: add support for Laravel 13 by @owenvoke in https://github.com/abordage/laravel-og-images/pull/41
+
+### New Contributors
+
+* @owenvoke made their first contribution in https://github.com/abordage/laravel-og-images/pull/41
+
+**Full Changelog**: https://github.com/abordage/laravel-og-images/compare/1.0.0...1.1.0
+
 ## 1.0.0 - 2025-12-27
 
 ### What's Changed
