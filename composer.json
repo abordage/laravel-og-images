@@ -9,8 +9,8 @@
         "opengraph",
         "twitter image",
         "vk image",
-        "Laravel 11",
-        "Laravel 12"
+        "Laravel 12",
+        "Laravel 13"
     ],
     "authors": [
         {
@@ -29,11 +29,11 @@
     "require-dev": {
         "ext-fileinfo": "*",
         "friendsofphp/php-cs-fixer": "^3.0",
-        "larastan/larastan": "^2.9 || ^3.0",
+        "larastan/larastan": "^3.0",
         "mikey179/vfsstream": "^1.6",
         "nunomaduro/collision": "^8.0",
-        "orchestra/testbench": "^9.0 || ^10.0",
-        "phpunit/phpunit": "^10.0 || ^11.0"
+        "orchestra/testbench": "^10.0 || ^11.0",
+        "phpunit/phpunit": "^11.5.50 || ^12.5.8"
     },
     "minimum-stability": "stable",
     "prefer-stable": true,
