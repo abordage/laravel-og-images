@@ -2,6 +2,15 @@
 
 All notable changes to `laravel-og-images` will be documented in this file.
 
+## 1.1.1 - 2026-10-20
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 3.0.0 to 3.1.0 by @dependabot[bot] in https://github.com/abordage/laravel-og-images/pull/42
+* fix: drop Laravel 11 from the test matrix by @abordage in https://github.com/abordage/laravel-og-images/pull/44
+
+**Full Changelog**: https://github.com/abordage/laravel-og-images/compare/1.1.0...1.1.1
+
 ## 1.1.0 - 2026-04-21
 
 ### What's Changed
